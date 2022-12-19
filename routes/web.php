@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\dashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +21,11 @@ Route::get('/signup',[userController::class,'signup']);
 
 Route::post('/signin',[userController::class,'do_signin'])->name('signin');
 Route::post('/signup',[userController::class,'do_signup'])->name('signup');
+
+// Route::get('/dashboard',[userController::class,''])
+Route::middleware(['role'])->group(function(){
+    //dashboard
+    Route::get('/dashboard',[dashboardController::class,'index'])->name('dashboard');
+});
 
 

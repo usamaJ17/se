@@ -8,7 +8,7 @@
             <div class="card-body">
                 <p class="login-box-msg">Register new account</p>
 
-                <form action="{{route('signup')}}" method="post">
+                <form action="{{route('signup')}}" method="post" enctype="multipart/form-data">
                   @csrf
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="name" placeholder="Full name">
@@ -32,6 +32,30 @@
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">cover photo</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" name="cover" class="custom-file-input" id="cover">
+                            <label class="custom-file-label" for="cover">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Profile pic</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" name="profile" class="custom-file-input" id="profile">
+                            <label class="custom-file-label" for="profile">Choose file (128 x 128)</label>
+                          </div>
+                          <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                          </div>
                         </div>
                     </div>
                     {{-- <div class="input-group mb-3">

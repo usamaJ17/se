@@ -13,6 +13,7 @@ class userController extends Controller
    }
    public function do_signup(Request $request)
    {
+    dd($request->all());
     $request->validate([
         'name' => 'required',
         'password'=> 'required',
@@ -43,9 +44,7 @@ class userController extends Controller
                     'logged_in' => true
                 ];
                 session()->put($session_data);
-                echo"login success";
-                var_dump(session()->all());
-                
+                return view('dashboard.dashboard_admin');                
             } else {
                echo "Password Wrong";
             }
